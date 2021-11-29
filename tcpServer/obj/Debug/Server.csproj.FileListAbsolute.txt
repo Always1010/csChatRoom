@@ -1,0 +1,10 @@
+D:\个人\vs wenjian\Server\bin\Debug\Server.exe.config
+D:\个人\vs wenjian\Server\bin\Debug\Server.exe
+D:\个人\vs wenjian\Server\bin\Debug\Server.pdb
+D:\个人\vs wenjian\Server\obj\Debug\Server.csproj.AssemblyReference.cache
+D:\个人\vs wenjian\Server\obj\Debug\Server.Form1.resources
+D:\个人\vs wenjian\Server\obj\Debug\Server.Properties.Resources.resources
+D:\个人\vs wenjian\Server\obj\Debug\Server.csproj.GenerateResource.cache
+D:\个人\vs wenjian\Server\obj\Debug\Server.csproj.CoreCompileInputs.cache
+D:\个人\vs wenjian\Server\obj\Debug\Server.exe
+D:\个人\vs wenjian\Server\obj\Debug\Server.pdb

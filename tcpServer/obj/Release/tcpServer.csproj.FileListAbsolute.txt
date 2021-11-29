@@ -1,0 +1,10 @@
+D:\个人\vs wenjian\tcpServer\bin\Release\tcpServer.exe.config
+D:\个人\vs wenjian\tcpServer\bin\Release\tcpServer.exe
+D:\个人\vs wenjian\tcpServer\bin\Release\tcpServer.pdb
+D:\个人\vs wenjian\tcpServer\obj\Release\Server.Form1.resources
+D:\个人\vs wenjian\tcpServer\obj\Release\tcpServer.Properties.Resources.resources
+D:\个人\vs wenjian\tcpServer\obj\Release\tcpServer.csproj.GenerateResource.cache
+D:\个人\vs wenjian\tcpServer\obj\Release\tcpServer.csproj.CoreCompileInputs.cache
+D:\个人\vs wenjian\tcpServer\obj\Release\tcpServer.exe
+D:\个人\vs wenjian\tcpServer\obj\Release\tcpServer.pdb
+D:\个人\vs wenjian\tcpServer\obj\Release\tcpServer.csproj.AssemblyReference.cache
