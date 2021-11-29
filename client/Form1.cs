@@ -15,14 +15,21 @@ namespace client
     public partial class Form1 : Form
     {
         public Form1()
-        {   
+        {
+            
             Form1.boo = -1;
             InitializeComponent();
+            this.BackgroundImage = Image.FromFile("../../res/backImg.jpg");
+            panel1.BackColor = Color.FromArgb(150, 204, 212, 230);
+            button4.Parent = this;
+            button4.BackColor = Color.Transparent;
+            
+            
         }
         bool register=false;
         public static int boo;
         public static string account;
-
+        
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -52,7 +59,9 @@ namespace client
                     StreamReader sr = new StreamReader(fs);
                     if (password == sr.ReadLine())
                     {
-                        _ = MessageBox.Show("登陆成功", "提示");
+                        //_ = MessageBox.Show("登陆成功", "提示");
+                        Form5 f5 = new Form5();
+                        f5.ShowDialog();
                         boo = 1;
                         System.Diagnostics.Debug.WriteLine("3:" + boo);
                         Form1.account = account_number;
@@ -75,7 +84,9 @@ namespace client
                     sw.WriteLine(password);//开始写入值
                     sw.Close();
                     fs1.Close();
-                    _ = MessageBox.Show("注册成功", "提示");
+                    MessageBox.Show("注册成功", "提示");
+                    textBox1.Text = "";
+                    textBox2.Text = "";
                 }
                 else
                 {
@@ -90,14 +101,14 @@ namespace client
             if (!register)
             {
                 label3.Text = "已有帐号？";
-                button1.Text = "注册";
+                button1.BackgroundImage = Image.FromFile("../../res/sign_up.png");
                 button2.Text = "选择登录";
                 register = true;
             }
             else
             {
                 label3.Text = "没有帐号？";
-                button1.Text = "登录";
+                button1.BackgroundImage = Image.FromFile("../../res/sign_in.png");
                 button2.Text = "选择注册";
                 register = false;
             }
@@ -108,19 +119,20 @@ namespace client
             if (textBox2.PasswordChar != '\0')
             {
                 textBox2.PasswordChar = '\0';
-                button3.Text = "隐藏密码";
+                button3.BackgroundImage = Image.FromFile("../../res/隐藏密码.png");
             }
             else
             {
                 textBox2.PasswordChar = '*';
-                button3.Text = "显示密码";
+                button3.BackgroundImage= Image.FromFile("../../res/显示密码.png");
+                
             }
 
         }
 
-        private void label3_Click(object sender, EventArgs e)
+        private void button4_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
     }
 }
