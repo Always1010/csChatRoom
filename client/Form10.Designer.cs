@@ -40,11 +40,13 @@ namespace client
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.panel1 = new client.orrPanel();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.button5 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(928, 451);
+            this.button1.Location = new System.Drawing.Point(928, 569);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(85, 38);
             this.button1.TabIndex = 1;
@@ -54,7 +56,7 @@ namespace client
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(928, 515);
+            this.button2.Location = new System.Drawing.Point(928, 613);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(85, 38);
             this.button2.TabIndex = 1;
@@ -64,7 +66,7 @@ namespace client
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(928, 583);
+            this.button3.Location = new System.Drawing.Point(928, 657);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(85, 38);
             this.button3.TabIndex = 1;
@@ -74,7 +76,7 @@ namespace client
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(928, 646);
+            this.button4.Location = new System.Drawing.Point(928, 701);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(85, 38);
             this.button4.TabIndex = 1;
@@ -91,7 +93,7 @@ namespace client
             // 
             // progressBar2
             // 
-            this.progressBar2.Location = new System.Drawing.Point(928, 718);
+            this.progressBar2.Location = new System.Drawing.Point(928, 745);
             this.progressBar2.Name = "progressBar2";
             this.progressBar2.Size = new System.Drawing.Size(124, 23);
             this.progressBar2.TabIndex = 2;
@@ -100,6 +102,7 @@ namespace client
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("华文中宋", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label1.ForeColor = System.Drawing.Color.Red;
             this.label1.Location = new System.Drawing.Point(947, 55);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(74, 21);
@@ -120,7 +123,7 @@ namespace client
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("华文中宋", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label3.Location = new System.Drawing.Point(947, 136);
+            this.label3.Location = new System.Drawing.Point(958, 138);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(55, 21);
             this.label3.TabIndex = 3;
@@ -130,7 +133,7 @@ namespace client
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("华文中宋", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label4.Location = new System.Drawing.Point(947, 770);
+            this.label4.Location = new System.Drawing.Point(966, 784);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(55, 21);
             this.label4.TabIndex = 3;
@@ -146,11 +149,31 @@ namespace client
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             this.panel1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseClick);
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(928, 351);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(137, 69);
+            this.textBox1.TabIndex = 5;
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(951, 426);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(85, 22);
+            this.button5.TabIndex = 6;
+            this.button5.Text = "发送";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
             // Form10
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1064, 828);
+            this.Controls.Add(this.button5);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label4);
@@ -183,5 +206,7 @@ namespace client
         private System.Windows.Forms.Label label4;
         private orrPanel panel1;
         public System.Windows.Forms.Button button4;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button button5;
     }
 }

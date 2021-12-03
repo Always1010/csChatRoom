@@ -171,7 +171,7 @@ namespace Server
                     }
 
                     //双方准备
-                    if (spl[0] == "$z")
+                    if (spl[0] == "$z"||spl[0]=="$v")
                     {
                         sockets[users[spl[1]]].Send(arrMsgRec);
                     }
@@ -232,6 +232,7 @@ namespace Server
             {
                 strr += item.Key + '|';
             }
+            //strr += "E";
             return strr;
         }
 

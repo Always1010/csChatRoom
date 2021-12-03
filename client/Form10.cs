@@ -38,7 +38,8 @@ namespace client
         
         public Point tailChessPosition;//上一颗黑棋
         public Point tailChessPosition2; //上一颗白棋
-        public Point p1, p2, p3, p4, p5, p6, p7, p8;//补充棋盘黑线
+        public Point tailChessPosition3;
+        public Point tailChessPosition4;
         public bool host;
 
         ////////////////////////////11.19标注，状态判断///////////////
@@ -159,9 +160,17 @@ namespace client
             g.FillEllipse(sb, cenX-15, cenY-15 , 30, 30);
             hasChess[x, y] = true;
             if (isBlack)
+            {
+                if (tailChessPosition != null)
+                    tailChessPosition3 = tailChessPosition;
                 tailChessPosition = new Point(x, y);
+            }
             if (!isBlack)
+            {
+                if (tailChessPosition2 != null)
+                    tailChessPosition4 = tailChessPosition2;
                 tailChessPosition2 = new Point(x, y);
+            }
             if (isBlack) isEnd=endJudge(x, y, 0);
             else isEnd = endJudge(x, y, 1);
             if (isOwnRound && isEnd) 
@@ -199,6 +208,7 @@ namespace client
 
         private void button2_Click(object sender, EventArgs e)
         {
+            button2.Enabled = false;
             isBegin2 = true;
             Form2.sendStatus();
             start();
@@ -258,6 +268,13 @@ namespace client
             button3.Enabled = false;
             isFirst = true;
             Form2.re();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            if(textBox1.Text!=null&&textBox1.Text.Trim()!="")
+                Form2.sendM(textBox1.Text);
+            textBox1.Text = "";
         }
 
 
@@ -368,10 +385,8 @@ namespace client
             Bitmap bitm = new Bitmap(this.panel1.Width, this.panel1.Height);
             Graphics g = Graphics.FromImage(bitm);
             g.Clear(panel1.BackColor);
-            //Pen p = new Pen(Color.Black, 5);
 
 
-            //Graphics GPS = panel1.CreateGraphics();
             Pen MyPen = new Pen(Color.Black, 2f);
             for (int i = 0; i < 15; i++)
             {
@@ -391,7 +406,10 @@ namespace client
         public void start()
         {
             if (isBegin1)
+            {
                 label1.Text = "已准备";
+                label1.ForeColor = Color.Green;
+            }
             if (isBegin1 && isBegin2)
             {
                 isBegin = true;
@@ -425,6 +443,8 @@ namespace client
             }
         }
 
+
+        //发送坐标
         public bool sendP(int x, int y)
         {
             //Form2 a = (Form2)this.Owner;
@@ -460,6 +480,9 @@ namespace client
             g.FillEllipse(sb, r);
             g.DrawLine(pen, x, y - t >= ori? y - t : ori, x, y + t <= tail? y + t : tail);
             g.DrawLine(pen, x - t >= ori? x - t : ori, y, x + t <= tail? x + t : tail, y);
+
+            tailChessPosition = tailChessPosition3;
+            tailChessPosition2 = tailChessPosition4;
         }
     }
 }
