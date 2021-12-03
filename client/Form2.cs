@@ -83,7 +83,7 @@ namespace client
                 byte[] massage = System.Text.Encoding.UTF8.GetBytes(data);
                 tcpClient.Send(massage);
             }
-            catch (Exception error)
+            catch (Exception)
             {
                 MessageBox.Show("发送失败", "提示");
                 return;
@@ -112,11 +112,11 @@ namespace client
                     {
                         length = tcpClient.Receive(msg_receive); 
                     }
-                    catch (SocketException se)
+                    catch (SocketException)
                     {
                         return;
                     }
-                    catch (Exception e)
+                    catch (Exception)
                     {
                         return;
                     }
@@ -125,6 +125,17 @@ namespace client
                     data = System.Text.Encoding.UTF8.GetString(msg_receive, 0, msg_receive.Length);
                     string[] spl = data.Split('|');
 
+                    if (spl[0] == "$xx")
+                    {
+                        MessageBox.Show("该用户名已被其它用户使用，请更换账号", "警告");
+                        Form1.boo = 0;
+                        tcpClient.Close();
+                        this.Invoke(new Action(() =>
+                        {
+                            this.Close();
+                        }));
+                        break;
+                    }
 
                     if (spl[0] == "$a")
                     {
@@ -143,7 +154,10 @@ namespace client
                         }));
                         foreach (var a in spl)
                         {
-                            if (a != "$b"&&a!=" "&&a!="\0")
+                            a.Trim();
+                            System.Diagnostics.Debug.WriteLine(a);
+                            System.Diagnostics.Debug.WriteLine(a.Length);
+                            if (a != "$b")
                                 this.listBox1.Invoke(new Action(() =>
                                 {
                                     listBox1.Items.Add(a);
@@ -179,7 +193,14 @@ namespace client
                         MessageBox.Show("对方已认输", "提示");
                     }
 
-                        if (spl[0] == "$s")
+                    if (spl[0] == "$v")
+                    {
+
+                        MessageBox.Show(spl[2], "来自对手的提示");
+                        
+                    }
+
+                    if (spl[0] == "$s")
                     {
                         
                         if (MessageBox.Show(spl[2] + "向你发起五子棋挑战，是否应战？", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
@@ -224,18 +245,29 @@ namespace client
 
         private void button4_Click(object sender, EventArgs e)
         {
-            friendname = listBox1.SelectedItems[0].ToString().Trim();
-            try
+            if (listBox1.SelectedIndex<0|| listBox1.SelectedIndex==listBox1.Items.Count-1)
             {
-                string data = "$s" + '|' + friendname + '|'+ Form1.account+'|';
-                byte[] massage = System.Text.Encoding.UTF8.GetBytes(data);
-                tcpClient.Send(massage);
-            }
-            catch (Exception error)
-            {
-                MessageBox.Show("连接错误", "提示");
+                MessageBox.Show("请在在线列表中选择一个好友", "提示");
                 return;
             }
+            friendname = listBox1.SelectedItems[0].ToString().Trim();
+            if (friendname == Form1.account)
+            {
+                MessageBox.Show("请选择好友！", "提示");
+                return;
+            }
+
+                try
+                {
+                    string data = "$s" + '|' + friendname + '|' + Form1.account + '|';
+                    byte[] massage = System.Text.Encoding.UTF8.GetBytes(data);
+                    tcpClient.Send(massage);
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("连接错误", "提示");
+                    return;
+                }
             
             f10 = new Form10();
             f10.host = true;
@@ -251,7 +283,24 @@ namespace client
                 byte[] massage = System.Text.Encoding.UTF8.GetBytes(data);
                 tcpClient.Send(massage);
             }
-            catch (Exception error)
+            catch (Exception)
+            {
+                MessageBox.Show("连接错误", "提示");
+                return false;
+            }
+            return true;
+        }
+
+
+        static public bool sendM(string msg)
+        {
+            try
+            {
+                string data = "$v" + '|' + friendname + '|' +msg+ '|';
+                byte[] massage = System.Text.Encoding.UTF8.GetBytes(data);
+                tcpClient.Send(massage);
+            }
+            catch (Exception)
             {
                 MessageBox.Show("连接错误", "提示");
                 return false;
@@ -267,7 +316,7 @@ namespace client
                 byte[] massage = System.Text.Encoding.UTF8.GetBytes(data);
                 tcpClient.Send(massage);
             }
-            catch (Exception error)
+            catch (Exception)
             {
                 MessageBox.Show("连接错误", "提示");
                 return false;
@@ -282,7 +331,7 @@ namespace client
                 byte[] massage = System.Text.Encoding.UTF8.GetBytes(data);
                 tcpClient.Send(massage);
             }
-            catch (Exception error)
+            catch (Exception)
             {
                 MessageBox.Show("连接错误", "提示");
             }
@@ -296,7 +345,7 @@ namespace client
                 byte[] massage = System.Text.Encoding.UTF8.GetBytes(data);
                 tcpClient.Send(massage);
             }
-            catch (Exception error)
+            catch (Exception)
             {
                 MessageBox.Show("连接错误", "提示");
             }

@@ -17,9 +17,15 @@ namespace client
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Form1.boo = 0;
+
+
+
             //           System.Diagnostics.Debug.WriteLine("1:" + Form1.boo + "     " + Thread.CurrentThread.ManagedThreadId.ToString());
             //Application.Run(new Form2());
             //Application.Run(new Form10());
+
+
+
             do
             {
                 if (Form1.boo == 0)
@@ -31,6 +37,8 @@ namespace client
                     Application.Run(new Form2());
 
             } while (Form1.boo != -1);
+
+
 
             //while (Form1.boo != -1)
             //{
