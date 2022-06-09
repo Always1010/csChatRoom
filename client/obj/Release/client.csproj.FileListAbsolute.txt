@@ -39,3 +39,16 @@ D:\git\cs 简单聊天室\client\obj\Release\client.csproj.CoreCompileInputs.cac
 D:\git\cs 简单聊天室\client\obj\Release\client.exe
 D:\git\cs 简单聊天室\client\obj\Release\client.pdb
 D:\git\cs 简单聊天室\client\obj\Release\client.Form11.resources
+C:\Users\always$$$\Desktop\c#作业\client\bin\Release\client.exe.config
+C:\Users\always$$$\Desktop\c#作业\client\bin\Release\client.exe
+C:\Users\always$$$\Desktop\c#作业\client\bin\Release\client.pdb
+C:\Users\always$$$\Desktop\c#作业\client\obj\Release\client.csproj.AssemblyReference.cache
+C:\Users\always$$$\Desktop\c#作业\client\obj\Release\client.Form1.resources
+C:\Users\always$$$\Desktop\c#作业\client\obj\Release\client.Form10.resources
+C:\Users\always$$$\Desktop\c#作业\client\obj\Release\client.Form2.resources
+C:\Users\always$$$\Desktop\c#作业\client\obj\Release\client.Form5.resources
+C:\Users\always$$$\Desktop\c#作业\client\obj\Release\client.Properties.Resources.resources
+C:\Users\always$$$\Desktop\c#作业\client\obj\Release\client.csproj.GenerateResource.cache
+C:\Users\always$$$\Desktop\c#作业\client\obj\Release\client.csproj.CoreCompileInputs.cache
+C:\Users\always$$$\Desktop\c#作业\client\obj\Release\client.exe
+C:\Users\always$$$\Desktop\c#作业\client\obj\Release\client.pdb
