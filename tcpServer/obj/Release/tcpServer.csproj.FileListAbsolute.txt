@@ -8,3 +8,13 @@ D:\个人\vs wenjian\tcpServer\obj\Release\tcpServer.csproj.CoreCompileInputs.ca
 D:\个人\vs wenjian\tcpServer\obj\Release\tcpServer.exe
 D:\个人\vs wenjian\tcpServer\obj\Release\tcpServer.pdb
 D:\个人\vs wenjian\tcpServer\obj\Release\tcpServer.csproj.AssemblyReference.cache
+C:\Users\always$$$\Desktop\2班11号-杨锐-简单聊天室及双人五子棋对战\tcpServer\bin\Release\tcpServer.exe.config
+C:\Users\always$$$\Desktop\2班11号-杨锐-简单聊天室及双人五子棋对战\tcpServer\bin\Release\tcpServer.exe
+C:\Users\always$$$\Desktop\2班11号-杨锐-简单聊天室及双人五子棋对战\tcpServer\bin\Release\tcpServer.pdb
+C:\Users\always$$$\Desktop\2班11号-杨锐-简单聊天室及双人五子棋对战\tcpServer\obj\Release\tcpServer.csproj.AssemblyReference.cache
+C:\Users\always$$$\Desktop\2班11号-杨锐-简单聊天室及双人五子棋对战\tcpServer\obj\Release\Server.Form1.resources
+C:\Users\always$$$\Desktop\2班11号-杨锐-简单聊天室及双人五子棋对战\tcpServer\obj\Release\tcpServer.Properties.Resources.resources
+C:\Users\always$$$\Desktop\2班11号-杨锐-简单聊天室及双人五子棋对战\tcpServer\obj\Release\tcpServer.csproj.GenerateResource.cache
+C:\Users\always$$$\Desktop\2班11号-杨锐-简单聊天室及双人五子棋对战\tcpServer\obj\Release\tcpServer.csproj.CoreCompileInputs.cache
+C:\Users\always$$$\Desktop\2班11号-杨锐-简单聊天室及双人五子棋对战\tcpServer\obj\Release\tcpServer.exe
+C:\Users\always$$$\Desktop\2班11号-杨锐-简单聊天室及双人五子棋对战\tcpServer\obj\Release\tcpServer.pdb

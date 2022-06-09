@@ -135,7 +135,14 @@ namespace Server
                     //接入用户
                     if (spl[0] == "$b")
                     {
-                        users.Add(spl[1], sokClient.RemoteEndPoint.ToString());
+                        try
+                        {
+                            users.Add(spl[1], sokClient.RemoteEndPoint.ToString());
+                        }catch(Exception e)
+                        {
+                            byte[] massage = System.Text.Encoding.UTF8.GetBytes("$xx" + '|');
+                            sockets[sokClient.RemoteEndPoint.ToString()].Send(massage);
+                        }
                         this.listBox1.Invoke(new Action(() =>
                         {
                             listBox1.Items.Add(spl[1]);

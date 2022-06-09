@@ -125,7 +125,7 @@ namespace client
                     data = System.Text.Encoding.UTF8.GetString(msg_receive, 0, msg_receive.Length);
                     string[] spl = data.Split('|');
 
-                    if (spl[0] == "$xx")
+					if (spl[0] == "$xx")
                     {
                         MessageBox.Show("该用户名已被其它用户使用，请更换账号", "警告");
                         Form1.boo = 0;
