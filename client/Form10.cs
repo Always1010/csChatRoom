@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -175,11 +176,15 @@ namespace client
             else isEnd = endJudge(x, y, 1);
             if (isOwnRound && isEnd) 
             {
-                MessageBox.Show("恭喜恭喜，你获胜了！", "恭喜");
+                Thread t = new Thread(() => MessageBox.Show("恭喜恭喜，你获胜了！", "恭喜"));
+                t.Start();
+                //MessageBox.Show("恭喜恭喜，你获胜了！", "恭喜");
             }
             if (!isOwnRound && isEnd)
             {
-                MessageBox.Show("不要气馁，下次你一定可以打败他！", "很遗憾");
+                Thread t = new Thread(() => MessageBox.Show("不要气馁，下次你一定可以打败他！", "很遗憾"));
+                t.Start();
+                //MessageBox.Show("不要气馁，下次你一定可以打败他！", "很遗憾");
             }
             isBlack = !isBlack;
             isOwnRound = !isOwnRound;

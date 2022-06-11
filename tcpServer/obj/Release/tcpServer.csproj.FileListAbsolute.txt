@@ -18,3 +18,13 @@ C:\Users\always$$$\Desktop\2班11号-杨锐-简单聊天室及双人五子棋对
 C:\Users\always$$$\Desktop\2班11号-杨锐-简单聊天室及双人五子棋对战\tcpServer\obj\Release\tcpServer.csproj.CoreCompileInputs.cache
 C:\Users\always$$$\Desktop\2班11号-杨锐-简单聊天室及双人五子棋对战\tcpServer\obj\Release\tcpServer.exe
 C:\Users\always$$$\Desktop\2班11号-杨锐-简单聊天室及双人五子棋对战\tcpServer\obj\Release\tcpServer.pdb
+C:\Users\always$$$\Desktop\cschatroom\csChatRoom\tcpServer\bin\Release\tcpServer.exe.config
+C:\Users\always$$$\Desktop\cschatroom\csChatRoom\tcpServer\bin\Release\tcpServer.exe
+C:\Users\always$$$\Desktop\cschatroom\csChatRoom\tcpServer\bin\Release\tcpServer.pdb
+C:\Users\always$$$\Desktop\cschatroom\csChatRoom\tcpServer\obj\Release\tcpServer.csproj.AssemblyReference.cache
+C:\Users\always$$$\Desktop\cschatroom\csChatRoom\tcpServer\obj\Release\Server.Form1.resources
+C:\Users\always$$$\Desktop\cschatroom\csChatRoom\tcpServer\obj\Release\tcpServer.Properties.Resources.resources
+C:\Users\always$$$\Desktop\cschatroom\csChatRoom\tcpServer\obj\Release\tcpServer.csproj.GenerateResource.cache
+C:\Users\always$$$\Desktop\cschatroom\csChatRoom\tcpServer\obj\Release\tcpServer.csproj.CoreCompileInputs.cache
+C:\Users\always$$$\Desktop\cschatroom\csChatRoom\tcpServer\obj\Release\tcpServer.exe
+C:\Users\always$$$\Desktop\cschatroom\csChatRoom\tcpServer\obj\Release\tcpServer.pdb
