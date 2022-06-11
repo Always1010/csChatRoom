@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using System.Net;
 using System.Net.Sockets;
 using System.Threading;
-
+using System.IO;
 
 namespace Server
 {
@@ -87,7 +87,7 @@ namespace Server
             Socket sokClient = sokConnectionparn as Socket;
             while (true)
             {
-                byte[] arrMsgRec = new byte[1024];
+                byte[] arrMsgRec = new byte[1024*2];
                 int length = -1;
                 try
                 {
@@ -124,11 +124,17 @@ namespace Server
                             this.ChatBox.AppendText(spl[1]);
                         }));
 
-                        if (length != -1)
+                        if (spl[2] == "all")
+                        {
                             foreach (Socket s in sockets.Values)
                             {
                                 s.Send(arrMsgRec);
                             }
+                        }
+                        else
+                        {
+                            sockets[users[spl[2]]].Send(arrMsgRec);
+                        }
                     }
 
 
@@ -138,7 +144,8 @@ namespace Server
                         try
                         {
                             users.Add(spl[1], sokClient.RemoteEndPoint.ToString());
-                        }catch(Exception e)
+                        }
+                        catch(Exception e)
                         {
                             byte[] massage = System.Text.Encoding.UTF8.GetBytes("$xx" + '|');
                             sockets[sokClient.RemoteEndPoint.ToString()].Send(massage);
@@ -189,12 +196,87 @@ namespace Server
                     }
 
 
-                    //文件传输
+                    //文件接收
                     if (spl[0] == "$f")
                     {
-                        sockets[users[spl[1]]].Send(arrMsgRec);
+                        
+                        byte[] buffer = new byte[1024 * 2];
+                        string fileName = spl[1];
+                        long filelength = Convert.ToInt64(spl[2]);
+                        long receive = 0L;
+                        string path = "D:/fileshare/";
+                        using (FileStream writer = new FileStream(Path.Combine(path, fileName), FileMode.Create, FileAccess.Write, FileShare.None))
+                        {
+                            int received;
+                            while (receive < filelength)
+                            {
+                                received = sokClient.Receive(buffer);
+                                writer.Write(buffer, 0, received);
+                                writer.Flush();
+                                receive += (long)received;
+                            }
+                        }
+                        this.ChatBox.Invoke(new Action(() =>
+                        {
+                            this.ChatBox.AppendText("someone share a file...");
+                        }));
+                        string data = "$a" + '|' + "someone share a file..." + '|' +"all"+'|';
+                        byte[] arrMsg = System.Text.Encoding.UTF8.GetBytes(data);
+                        foreach (Socket s in sockets.Values)
+                        {
+                            s.Send(arrMsg);
+                        }
+
                     }
 
+                    if (spl[0] == "$getFilelist")
+                    {
+                        String path = @"D:\fileshare";
+                        var files = Directory.GetFiles(path, "*");
+                        String msg = "$getFilelist" + '|';
+                        foreach (var file in files)
+                            msg = msg + Path.GetFileName(file) + '|';
+                        byte[] massage = System.Text.Encoding.UTF8.GetBytes(msg);
+                        sokClient.Send(massage);
+                    }
+
+
+                    if (spl[0] == "$download")
+                    {
+                        
+                        String path = @"D:\fileshare\"+spl[1];
+
+                        //string path = ofd.FileName;
+                        using (FileStream reader = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.None))
+                        {
+                            long send = 0L;
+                            long filelength = reader.Length;
+                            string sendStr = "$f" + '|' + Path.GetFileName(path) + '|' + filelength.ToString();
+
+                            string fileName = Path.GetFileName(path);
+                            sokClient.Send(System.Text.Encoding.UTF8.GetBytes(sendStr));
+
+                            int BufferSize = 1024 * 2;
+                            //byte[] buffer = new byte[32];
+                            //tcpClient.Receive(buffer);
+                            //string mes = Encoding.Default.GetString(buffer);
+
+
+                            byte[] fileBuffer = new byte[BufferSize];
+                            int read, sent;
+                            while ((read = reader.Read(fileBuffer, 0, BufferSize)) != 0)
+                            {
+                                sent = 0;
+                                while ((sent += sokClient.Send(fileBuffer, sent, read, SocketFlags.None)) < read)
+                                {
+                                    send += (long)sent;
+                                }
+                            }
+
+
+                        }
+
+                    }
 
                     //this.ChatBox.Invoke(new Action(() =>
                     //{
